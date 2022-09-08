@@ -1,0 +1,46 @@
+name: Hale compiler (c-bot) 
+on: [push]
+jobs:
+  build-project:
+    name: Compile theme files 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: NPM install
+        run: npm install
+      - name: NPM build 
+        run: npm run build
+      - name: Upload compiled site
+        uses: actions/upload-artifact@v3
+        with:
+          name: hale-compiled 
+          path: | 
+            .
+            !./node_modules
+            !.git
+            !.sql
+            !.env
+          if-no-files-found: error
+  create-release:
+    name: Create release
+    runs-on: ubuntu-latest
+    needs: build-project
+    permissions:
+      contents: write
+    steps:
+      - run: echo "🎉 The job was automatically riggered by a ${{ github.event_name }} event."
+      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      - name: Download site content
+        uses: actions/download-artifact@v3
+        with:
+          name: hale-compiled
+      - name: Compress theme into .zip format 
+        uses: thedoctor0/zip-release@main
+        with:
+          filename: hale-compiled.zip
