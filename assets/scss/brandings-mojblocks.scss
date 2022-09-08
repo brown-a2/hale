@@ -1,0 +1,201 @@
+@import 'page-colours';
+
+//brandings for MOj Blocks
+
+*{
+	//Accordion block
+	.govuk-accordion,
+	.js-enabled .govuk-accordion {
+		h1, h2, h3, h4, h5, h6 {
+			color: unset;
+		}
+
+		&__controls {
+			.govuk-accordion__open-all {
+
+				color: var(--mojblocks-accordion-section-title);
+
+				&:hover {
+					color: var(--mojblocks-accordion-section-title-hover);
+				}
+
+				&:focus {
+					color: var(--mojblocks-accordion-section-title-focus);
+					background-color: var(--mojblocks-accordion-section-title-focus-bg);
+					box-shadow: 0 -2px var(--mojblocks-accordion-section-title-focus-bg), 0 4px var(--mojblocks-accordion-section-title-focus-shadow);
+				}
+			}
+		}
+		&__section-button:focus {
+			.govuk-accordion__section-heading-text-focus,
+			.govuk-accordion__section-toggle-focus {
+				color: var(--mojblocks-accordion-section-title-focus);
+				background-color: var(--mojblocks-accordion-section-title-focus-bg);
+				box-shadow: 0 -2px var(--mojblocks-accordion-section-title-focus-bg), 0 4px var(--mojblocks-accordion-section-title-focus-shadow);
+
+				.govuk-accordion-nav__chevron {
+					color: var(--mojblocks-accordion-section-title-focus);
+					background-color: var(--mojblocks-accordion-section-title-focus);
+
+					&:after {
+						color: var(--mojblocks-accordion-section-title-focus-bg);
+					}
+				}
+			}
+		}
+
+		&__show-all:focus {
+			color: var(--mojblocks-accordion-section-title-focus);
+			background-color: var(--mojblocks-accordion-section-title-focus-bg);
+			box-shadow: 0 -2px var(--mojblocks-accordion-section-title-focus-bg), 0 4px var(--mojblocks-accordion-section-title-focus-shadow);
+
+			.govuk-accordion-nav__chevron {
+				color: var(--mojblocks-accordion-section-title-focus);
+				background-color: var(--mojblocks-accordion-section-title-focus);
+
+				&:after {
+					color: var(--mojblocks-accordion-section-title-focus-bg);
+				}
+			}
+		}
+	}
+
+	//CTA Block
+	.wp-block-mojblocks-cta {
+		background-color: var(--mojblocks-cta-bg);
+
+		.mojblocks-cta__heading-text {
+			color: var(--mojblocks-cta-title);
+
+		}
+
+		.mojblocks-cta__content p {
+			color: var(--mojblocks-cta-text);
+		}
+	}
+
+	//Hero Block
+	.mojblocks-hero {
+		.mojblocks-hero__image {
+			background-color: var(--mojblocks-hero-bg);
+		}
+	}
+	//Highlights List Block
+	.mojblocks-highlights-list {
+		background-color: var(--mojblocks-highlights-list-bg);
+
+		&__heading-text {
+			color: var(--mojblocks-highlights-list-title);
+		}
+
+		.mojblocks-highlights-list__content li {
+			color: var(--mojblocks-highlights-list-text);
+
+			a,
+			a:link,
+			a:link:visited
+			a:link:visited:not([class]){
+				color: var(--mojblocks-highlights-list-text);
+			}
+
+			&:before {
+				background-color: var(--mojblocks-highlights-list-bar);
+			}
+		}
+	}
+
+	//Reveal Block
+	.wp-block-mojblocks-reveal {
+		.govuk-details__summary {
+			color: var(--link);
+
+			&:hover {
+				color: var(--link-hover);
+			}
+
+			&:focus {
+				color: var(--link-focus);
+				background-color: var(--link-focus-background);
+				box-shadow: 0 -2px var(--link-focus-background), 0 4px var(--link-focus-shadow);
+			}
+		}
+	}
+
+	//Staggered Box Block
+	.mojblocks-staggered-box {
+		.mojblocks-staggered-box__text-container {
+			background: var(--mojblocks-staggered-box-bg);
+
+			.mojblocks-staggered-box__title {
+
+				color: var(--mojblocks-staggered-box-title);
+
+				&:before {
+					background: var(--mojblocks-staggered-box-bar);
+				}
+			}
+
+			.mojblocks-staggered-box__content {
+				color: var(--mojblocks-staggered-box-text);
+			}
+
+			.mojblocks-staggered-box__button {
+				border-color: var(--mojblocks-staggered-box-btn-border);
+				color: var(--mojblocks-staggered-box-btn-text);
+				background: var(--mojblocks-staggered-box-btn-bg);
+
+				&:hover {
+					border-color: var(--mojblocks-staggered-box-btn-hover-border);
+					color: var(--mojblocks-staggered-box-btn-hover-text);
+					background: var(--mojblocks-staggered-box-btn-hover-bg);
+				}
+
+				&:focus {
+					border-color: var(--mojblocks-staggered-box-btn-focus-border);
+					color: var(--mojblocks-staggered-box-btn-focus-text);
+					background: var(--mojblocks-staggered-box-btn-focus-bg);
+				}
+
+			}
+		}
+	}
+
+	// all buttons in blocks
+	// .wp-block-button__link is used here to extend our colours to the core WP button block
+	.mojblocks-button,
+	a.mojblocks-button:link,
+	a.mojblocks-button:visited,
+	.wp-block-button__link,
+	.govuk-button {
+		border:var(--button-border);
+		box-shadow: 0 1px 0 var(--button);
+		color:var(--button-text);
+		background-color:var(--button);
+		&:hover {
+			background-color: var(--button-hover);
+			color: var(--button-hover-text);
+			box-shadow: 0 1px 0 var(--button-hover);
+			border-color: var(--link-focus);
+			svg {
+				fill: var(--button-hover-text);
+			}
+		}
+		&:active {
+			background-color: var(--button-active);
+			box-shadow: none;
+		}
+		&:focus {
+			background-color: var(--button-focus);
+			color: var(--button-focus-text);
+			box-shadow: 0 0 0 3px var(--button-focus-outline);
+		}
+		&:focus:not(:active):not(:hover) {
+			background-color: var(--button-focus);
+			color: var(--button-focus-text);
+			box-shadow: 0 0 0 3px var(--button-focus-outline);
+		}
+		svg {
+			fill: var(--button-text);
+		}
+	}
+}

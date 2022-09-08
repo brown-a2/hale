@@ -1,0 +1,90 @@
+<?php
+/**
+ * The main template file
+ * This is the most generic template file in a WordPress theme
+ * and one of the two required files for a theme (the other being style.css).
+ * It is used to display a page when nothing more specific matches a query.
+ * E.g., it puts together the home page when no home.php file exists.
+ *
+ * @link      https://developer.wordpress.org/themes/basics/template-hierarchy/
+ * @package Hale
+ * Theme Hale with GDS styles
+ * ©Crown Copyright
+ * Adapted from version from NHS Leadership Academy, Tony Blacker
+ * @version 2.0 February 2021
+ */
+
+get_header();
+
+$sidebar = hale_show_sidebar();
+
+?>
+
+	<div id="primary" class="govuk-grid-column-two-thirds">
+
+		<?php
+
+		if ( is_home() && ! is_front_page() ) :
+			?>
+			<h1 class="govuk-heading-xl"><?php single_post_title(); ?></h1>
+			<?php
+		endif;
+		?>
+
+		<div class="
+		<?php
+		if ( $sidebar ) :
+			echo hale_sidebar_location( 'sidebar-2' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		endif;
+		?>
+		index">
+
+			<?php
+			if ( have_posts() ) :
+				?>
+
+
+				<div class="govuk-grid-row">
+
+					<?php
+
+					/* Start the Loop */
+					while ( have_posts() ) :
+						the_post();
+
+						/*
+						 * Include the Post-Type-specific template for the content.
+						 * If you want to override this in a child theme, then include a file
+						 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
+						 */
+						get_template_part( 'template-parts/content', get_post_type() );
+
+					endwhile;
+
+					?>
+
+				</div>
+
+				<?php
+
+				hale_archive_pagination();
+
+				else :
+
+					get_template_part( 'template-parts/content', 'none' );
+
+			endif;
+				wp_reset_postdata();
+				?>
+
+		</div>
+		<?php
+		if ( $sidebar ) :
+			get_sidebar( 'blog' );
+		endif;
+		?>
+
+	</div><!-- #primary -->
+
+<?php
+get_footer();

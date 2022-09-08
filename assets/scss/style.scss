@@ -1,0 +1,37 @@
+@charset "UTF-8";
+@import 'default';
+@import 'gds-design-system-settings';
+@import 'hale-styles';
+
+$gutenberg-styles: false;
+
+//high-level text sizing for blocks
+@import 'fontstyles/pt-sans';
+
+// styles for all MoJ blocks (including overrides)
+@import 'moj-blocks-general';
+
+// pagination - from MoJ Design System and GOVUK publishing
+@import 'pagination';
+
+// secondary top nav styles
+@import 'secondary-top-nav';
+
+// header styles
+@import 'header';
+
+// footer styles
+@import 'footer';
+
+// styles for all widges in theme
+@import 'widgets';
+
+//icons for footer
+@import 'icons';
+@import 'condolence-banner';
+
+//News
+@import 'news';
+
+//Documents
+@import 'documents';
