@@ -44,3 +44,5 @@ jobs:
         uses: thedoctor0/zip-release@main
         with:
           filename: hale-compiled.zip
+      - name: push package
+        uses: browna2/packman@main
