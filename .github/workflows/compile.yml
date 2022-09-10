@@ -45,4 +45,4 @@ jobs:
         with:
           filename: hale-compiled.zip
       - name: push package
-        uses: browna2/packman@main
+        uses: brown-a2/packman@main
